@@ -11,12 +11,21 @@ devDependencies:
   dompurify:
     specifier: ^3.0.6
     version: 3.0.6
+  highlight.js:
+    specifier: ^11.9.0
+    version: 11.9.0
   marked:
     specifier: ^9.1.1
     version: 9.1.1
+  marked-highlight:
+    specifier: ^2.0.6
+    version: 2.0.6(marked@9.1.1)
   nuxt:
     specifier: ^3.7.4
     version: 3.7.4
+  prettier:
+    specifier: ^3.0.3
+    version: 3.0.3
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -1305,6 +1314,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -3171,6 +3181,11 @@ packages:
     resolution: {integrity: sha512-WdZTbAByD+pHfl/g9QSsBIIwy8IT+EsPiKDs0KNX+zSHhdDLFKdZu0BQHljvO+0QI/BasbMSUa8wYNCZTvhslg==}
     dev: true
 
+  /highlight.js@11.9.0:
+    resolution: {integrity: sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==}
+    engines: {node: '>=12.0.0'}
+    dev: true
+
   /hookable@5.5.3:
     resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
     dev: true
@@ -3749,6 +3764,14 @@ packages:
       - supports-color
     dev: true
 
+  /marked-highlight@2.0.6(marked@9.1.1):
+    resolution: {integrity: sha512-xjA/C6xgXAfkkYg+YHnxdjmgFyTDtqqu8KbZiqh+COJ7PuzR15kqa+rPrs6pf/2jExXtG1jyCFUHmv9s0Bi/dQ==}
+    peerDependencies:
+      marked: '>=4 <10'
+    dependencies:
+      marked: 9.1.1
+    dev: true
+
   /marked@9.1.1:
     resolution: {integrity: sha512-ZmXkUGH54U4rEy3GL9vYj8+S1PHJx/zz5pc4Frn7UdGiNREKT12fWBJ5a5ffjFtghx9C9912vEg9Zra1Nf7CnA==}
     engines: {node: '>= 16'}
@@ -3960,6 +3983,10 @@ packages:
     resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
     engines: {node: ^14 || ^16 || >=18}
     hasBin: true
+    dev: true
+
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
     dev: true
 
   /negotiator@0.6.3:
@@ -4893,6 +4920,12 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: true
+
+  /prettier@3.0.3:
+    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /pretty-bytes@6.1.1:
