@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@types/dompurify": "^3.0.3",
     "dompurify": "^3.0.6",
     "highlight.js": "^11.9.0",
     "marked": "^9.1.1",

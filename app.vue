@@ -1,7 +1,20 @@
 <template>
   <div>
-    <textarea class="w-50 vh-100 inline-block" v-model="inputValue"></textarea>
-    <div class="output w-50 vh-100 inline-block float-right overflow-scroll" v-html="outputValue"></div>
+    <div>
+      <textarea class="vh-100 inline-block"
+        :class="{ 'w-50': showInput && showOutput, 'w-100': showInput && !showOutput, 'd-none': !showInput && showOutput }"
+        v-model="inputValue"></textarea>
+      <div class="output inline-block float-right overflow-scroll"
+        :class="{ 'w-50': showInput && showOutput, 'w-100': !showInput && showOutput, 'd-none': showInput && !showOutput, 'vh-100': mode !== -1 }"
+        v-html="outputValue"></div>
+    </div>
+    <div class="mx-auto">
+      <span class="px-2 small">{{ modeName[mode + 1] }}</span>
+      <button v-show="mode !== 2" @click="mode++">&lt;</button>
+      <span class="px-2">&lt;{{ modeName[mode] }}&gt;</span>
+      <button v-show="mode !== -1" @click="mode--">&gt;</button>
+      <span class="px-2 small">{{ modeName[mode - 1] }}</span>
+    </div>
   </div>
 </template>
 
@@ -9,6 +22,19 @@
 import defaultText from "assets/defaultText.md?raw"
 const inputValue = ref(defaultText)
 const outputValue = computed(() => parseMD(inputValue.value))
+
+const mode = ref(1)
+const showInput = computed(() => mode.value !== 0 && mode.value !== -1)
+const showOutput = computed(() => mode.value !== 2)
+
+const modeName: { [key: number | string]: string } = {
+  "-2": "",
+  "-1": "印刷モード",
+  "0": "表示モード",
+  "1": "編集/表示モード",
+  "2": "編集モード",
+  "3": ""
+}
 </script>
 
 <style>
@@ -21,6 +47,15 @@ body {
 <style scoped>
 .w-50 {
   width: 49%;
+}
+
+.w-100 {
+  width: 99%;
+}
+
+.d-none {
+  display: none !important;
+  ;
 }
 
 .vh-100 {
@@ -37,6 +72,20 @@ body {
 
 .overflow-scroll {
   overflow-y: auto;
+}
+
+.px-2 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.mx-auto {
+  margin: auto;
+  width: fit-content
+}
+
+.small {
+  font-size: .8rem
 }
 
 .output :deep(code) {
